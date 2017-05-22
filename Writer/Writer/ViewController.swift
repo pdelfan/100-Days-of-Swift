@@ -24,9 +24,11 @@ class ViewController: UIViewController {
     func detectIfSettingsChanged() {
         //print("Night Mode setting is: \(UserDefaults.standard.bool(forKey: "nightMode"))")
         
-        // if night mode is on
-        // apply theme
-        // else restore default theme
+        /* 
+         if night mode is on
+         apply theme
+         else restore default theme
+        */
         
         if UserDefaults.standard.bool(forKey: "nightMode") == true {
             // apply night theme
