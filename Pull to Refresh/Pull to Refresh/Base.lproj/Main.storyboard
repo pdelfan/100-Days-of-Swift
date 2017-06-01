@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,10 +43,55 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groceries" id="sSo-aV-qs7"/>
+                    <connections>
+                        <segue destination="GvU-Yo-hOq" kind="show" identifier="segueToNewGrocery" id="qQu-d4-UDM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcJ-jB-QJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="917.60000000000002" y="99.400299850074973"/>
+        </scene>
+        <!--New Grocery-->
+        <scene sceneID="Zkn-PA-XGb">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GvU-Yo-hOq" customClass="NewGroceryViewController" customModule="Pull_to_Refresh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NCT-tz-0jd"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Zo-fr-Wng"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vbb-Lq-9GN" customClass="New">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Rfb-Qj-xCw">
+                                <rect key="frame" x="16" y="80" width="343" height="587"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rfb-Qj-xCw" secondAttribute="trailing" id="5Fc-4H-WVS"/>
+                            <constraint firstItem="Rfb-Qj-xCw" firstAttribute="leading" secondItem="Vbb-Lq-9GN" secondAttribute="leadingMargin" id="CbU-zB-qrJ"/>
+                            <constraint firstItem="2Zo-fr-Wng" firstAttribute="top" secondItem="Rfb-Qj-xCw" secondAttribute="bottom" id="TPz-Ej-gbM"/>
+                            <constraint firstItem="Rfb-Qj-xCw" firstAttribute="top" secondItem="NCT-tz-0jd" secondAttribute="bottom" constant="16" id="qCC-Du-b65"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Grocery" id="0Mr-4R-Nh9">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="0ly-ri-pU4">
+                            <connections>
+                                <action selector="tapDoneButton:" destination="GvU-Yo-hOq" id="Unv-ic-bD0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="Rfb-Qj-xCw" id="Teg-rh-rrU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kzY-u3-vMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZGu-FE-ijQ">
