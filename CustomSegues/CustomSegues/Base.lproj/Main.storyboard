@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="CustomSegues" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="That didn't happen." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1by-dp-hrG">
+                                <rect key="frame" x="82.5" y="318" width="211.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66666666666666663" green="0.6705882352941176" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="1by-dp-hrG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ex9-dM-Ojw"/>
+                            <constraint firstItem="1by-dp-hrG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vdT-YS-HMY"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="NqB-gv-k93" appends="YES" id="tYa-TI-k2G"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <segue destination="a1r-co-WVm" kind="custom" identifier="segueToSecond" customClass="SlideToSegue" customModule="CustomSegues" customModuleProvider="target" id="1EF-Uw-cWY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="NqB-gv-k93">
+                    <connections>
+                        <action selector="swipeUpGesture:" destination="BYZ-38-t0r" id="r2Y-fz-ryh"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="98" y="136"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="8eX-zr-3b3">
+            <objects>
+                <viewController id="a1r-co-WVm" customClass="SecondViewController" customModule="CustomSegues" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kzl-T3-0HC"/>
+                        <viewControllerLayoutGuide type="bottom" id="8YH-ik-6Bb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kUm-tz-vib">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTg-Tx-izW">
+                                <rect key="frame" x="25.5" y="318" width="324.5" height="30"/>
+                                <string key="text">And if it did, it wasn't that bad.
+</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79607843137254897" green="0.65098039215686276" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="eTg-Tx-izW" firstAttribute="centerX" secondItem="kUm-tz-vib" secondAttribute="centerX" id="U5h-dt-jwu"/>
+                            <constraint firstItem="eTg-Tx-izW" firstAttribute="centerY" secondItem="kUm-tz-vib" secondAttribute="centerY" id="sVS-NN-d3t"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Xqd-eu-cTR" appends="YES" id="hsC-Dj-Gry"/>
+                            <outletCollection property="gestureRecognizers" destination="V7g-J1-gJC" appends="YES" id="ckh-4e-NLH"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <segue destination="qPa-sy-fic" kind="custom" identifier="segueToThird" customClass="SlideToSegue" customModule="CustomSegues" customModuleProvider="target" id="pq2-K0-HVr"/>
+                        <segue destination="41d-kM-0fo" kind="unwind" identifier="segueBackToFirst" customClass="SlideBackSegue" customModule="CustomSegues" customModuleProvider="target" unwindAction="segueBackToFirst:" id="3ED-rS-IPY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XZx-KH-EB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="41d-kM-0fo" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="down" id="Xqd-eu-cTR">
+                    <connections>
+                        <action selector="swipeDownGesture:" destination="a1r-co-WVm" id="Sch-R0-Dib"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="V7g-J1-gJC">
+                    <connections>
+                        <action selector="swipeUpGesture:" destination="a1r-co-WVm" id="2QD-O3-HUJ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="770" y="135"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="x6u-3C-Af6">
+            <objects>
+                <viewController id="qPa-sy-fic" customClass="ThirdViewController" customModule="CustomSegues" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YkF-m1-Fdv"/>
+                        <viewControllerLayoutGuide type="bottom" id="gF3-hC-Z8D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8DP-57-nQG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c79-9J-w8P">
+                                <rect key="frame" x="66" y="303" width="243.5" height="60"/>
+                                <string key="text">And if it was, that's not
+a big deal.</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20784313725490194" green="0.2196078431372549" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="c79-9J-w8P" firstAttribute="centerY" secondItem="8DP-57-nQG" secondAttribute="centerY" id="1OU-4g-vHE"/>
+                            <constraint firstItem="c79-9J-w8P" firstAttribute="centerX" secondItem="8DP-57-nQG" secondAttribute="centerX" id="4eE-ZV-pgD"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="z78-ie-F07" appends="YES" id="hm9-rB-dc5"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <segue destination="lax-fI-dMa" kind="unwind" identifier="segueBackToSecond" customClass="SlideBackSegue" customModule="CustomSegues" customModuleProvider="target" unwindAction="segueBackToSecond:" id="EXE-ri-an5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="El0-IR-Cfu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lax-fI-dMa" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="down" id="z78-ie-F07">
+                    <connections>
+                        <action selector="swipeDownGesture:" destination="qPa-sy-fic" id="Pqx-Qp-b6E"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1447" y="136"/>
+        </scene>
+    </scenes>
+</document>
