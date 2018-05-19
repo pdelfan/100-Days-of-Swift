@@ -1,3 +1,1 @@
-# 100-Days-of-Swift
-
-Various projects written in Swift for iOS.
+Small practice projects written in Swift for iOS.
