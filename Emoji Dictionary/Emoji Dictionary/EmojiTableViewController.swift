@@ -10,6 +10,7 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
 
+    // MARK: - Data
     var emojis: [Emoji] = [
     Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness"),
     Emoji(symbol: "😕", name: "Confused Face", description: "A confused, puzzled face.", usage: "unsure what to think; displeasure"),
@@ -26,19 +27,26 @@ class EmojiTableViewController: UITableViewController {
     Emoji(symbol: "🏁", name: "Checkered Flag", description: "A black-and-white checkered flag.", usage: "completion")
     ]
     
+    // Edit button action
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -57,20 +65,31 @@ class EmojiTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Fetch the correct cell type by dequeueing a cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
         
-        // Fetch the model object to be displayed
+        // Step 1: Dequeue cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath) as! EmojiTableViewCell
+        
+        // Step 2: Fetch model object to display
         let emoji = emojis[indexPath.row]
         
-        // Configure the cell's properties with the model objct properties
-        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
-        cell.detailTextLabel?.text = emoji.description
+        // Step 3: Configure cell
+        cell.update(with: emoji)
+        cell.showsReorderControl = true
         
-        // Return fully configured cell
+        // Step 4: Return cell
         return cell
     }
     
+    // Responding to user interaction
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let emoji = emojis[indexPath.row]
+        print("\(emoji.symbol) \(indexPath)")
+    }
+    
+    // Remove the delete indicator while rearrenging
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -80,24 +99,27 @@ class EmojiTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            emojis.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedEmoji = emojis.remove(at: fromIndexPath.row)
+        emojis.insert(movedEmoji, at: to.row)
+        tableView.reloadData()
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
