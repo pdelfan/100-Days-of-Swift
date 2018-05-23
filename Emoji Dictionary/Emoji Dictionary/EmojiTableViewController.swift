@@ -11,27 +11,14 @@ import UIKit
 class EmojiTableViewController: UITableViewController {
 
     // MARK: - Data
-    var emojis: [Emoji] = [
-    Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness"),
-    Emoji(symbol: "😕", name: "Confused Face", description: "A confused, puzzled face.", usage: "unsure what to think; displeasure"),
-    Emoji(symbol: "😍", name: "Heart Eyes", description: "A smiley face with hearts for eoyes.", usage: "love of something; attractive"),
-    Emoji(symbol: "👮", name: "Police Officer", description: "A police officer wearing a blue cap with a gold badge.", usage: "person of authority"),
-    Emoji(symbol: "🐢", name: "Turtle", description: "A cute turtle.", usage: "something slow"),
-    Emoji(symbol: "🐘", name: "Elephant", description: "A gray elephant.", usage: "good memory"),
-    Emoji(symbol: "🍝", name: "Spaghetti", description: "A plate of spaghetti.", usage: "spaghetti"),
-    Emoji(symbol: "🎲", name: "Die", description: "A single die.", usage: "taking a risk, chance; game"),
-    Emoji(symbol: "⛺️", name: "Tent", description: "A small tent.", usage: "camping"),
-    Emoji(symbol: "📚", name: "Stack of Books", description: "Three coloured books stacked on each other.", usage: "homework, studying"),
-    Emoji(symbol: "💔", name: "Broken Heart", description: "A red, broken heart.", usage: "extreme sadness"),
-    Emoji(symbol: "💤", name: "Snore", description: "Three blue \'z\'s.", usage: "tired, sleepiness"),
-    Emoji(symbol: "🏁", name: "Checkered Flag", description: "A black-and-white checkered flag.", usage: "completion")
-    ]
+    var emojis: [Emoji] = []
     
     // Edit button action
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         let tableViewEditingMode = tableView.isEditing
         tableView.setEditing(!tableViewEditingMode, animated: true)
     }
+    
     
     
     override func viewDidLoad() {
@@ -42,6 +29,12 @@ class EmojiTableViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
+        
+        if let savedData = Emoji.loadFromFile() {
+            emojis.append(contentsOf: savedData)
+        } else {
+            emojis.append(contentsOf: Emoji.loadSampleEmojis())
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,6 +102,7 @@ class EmojiTableViewController: UITableViewController {
             // Delete the row from the data source
             emojis.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            Emoji.saveToFile(emojis: emojis)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -120,6 +114,7 @@ class EmojiTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let movedEmoji = emojis.remove(at: fromIndexPath.row)
         emojis.insert(movedEmoji, at: to.row)
+        Emoji.saveToFile(emojis: emojis)
         tableView.reloadData()
     }
     
@@ -164,6 +159,7 @@ class EmojiTableViewController: UITableViewController {
                 emojis.append(emoji)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            Emoji.saveToFile(emojis: emojis)
         }
     }
     
