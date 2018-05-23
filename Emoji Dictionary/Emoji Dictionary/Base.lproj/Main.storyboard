@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Emoji Dictionary-->
         <scene sceneID="qjS-7k-XaL">
             <objects>
                 <tableViewController id="gsE-eJ-XWJ" customClass="EmojiTableViewController" customModule="Emoji_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="mpH-Yg-nRw" detailTextLabel="X7b-FJ-1EF" style="IBUITableViewCellStyleSubtitle" id="rtM-wg-2Mm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmojiCell" textLabel="mpH-Yg-nRw" detailTextLabel="X7b-FJ-1EF" style="IBUITableViewCellStyleSubtitle" id="rtM-wg-2Mm">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rtM-wg-2Mm" id="PiU-hX-Pz8">
@@ -48,7 +48,7 @@
                             <outlet property="delegate" destination="gsE-eJ-XWJ" id="TDZ-Ie-wLJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="bJ1-FX-faS"/>
+                    <navigationItem key="navigationItem" title="Emoji Dictionary" id="bJ1-FX-faS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJF-ZW-7c1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,8 +58,8 @@
         <scene sceneID="DAJ-Hb-oUL">
             <objects>
                 <navigationController id="mwc-Hb-Q0c" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3ZN-24-sl7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="3ZN-24-sl7">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
