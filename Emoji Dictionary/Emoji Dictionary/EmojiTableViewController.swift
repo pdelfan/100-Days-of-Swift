@@ -108,7 +108,7 @@ class EmojiTableViewController: UITableViewController {
         }    
     }
     
-
+    
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -139,7 +139,6 @@ class EmojiTableViewController: UITableViewController {
         if segue.identifier == "EditEmoji" {
             let indexPath = tableView.indexPathForSelectedRow!
             let emoji = emojis[indexPath.row]
-            //let addEditEmojiTableViewController = segue.destination as! AddEditEmojiTableViewController
             let nav = segue.destination as! UINavigationController
             let addEditEmojiTableViewController = nav.topViewController as! AddEditEmojiTableViewController
             addEditEmojiTableViewController.emoji = emoji
